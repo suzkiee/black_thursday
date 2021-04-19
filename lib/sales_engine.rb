@@ -17,13 +17,13 @@ class SalesEngine
               :customers
 
   def initialize(paths)
-   @items = ItemRepo.new(paths[:items], self)
-   @merchants = MerchantRepo.new(paths[:merchants], self)
-   @analyst = SalesAnalyst.new(self)
-   @invoices = InvoiceRepo.new(paths[:invoices], self)
-   @invoice_items = InvoiceItemRepo.new(paths[:invoice_items], self)
-   @transactions = TransactionRepo.new(paths[:transactions], self)
-   @customers = CustomerRepo.new(paths[:customers], self)
+    @items = ItemRepo.new(paths[:items], self)
+    @merchants = MerchantRepo.new(paths[:merchants], self)
+    @analyst = SalesAnalyst.new(self)
+    @invoices = InvoiceRepo.new(paths[:invoices], self)
+    @invoice_items = InvoiceItemRepo.new(paths[:invoice_items], self)
+    @transactions = TransactionRepo.new(paths[:transactions], self)
+    @customers = CustomerRepo.new(paths[:customers], self)
   end
 
   def self.from_csv(paths)
