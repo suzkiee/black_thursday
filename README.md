@@ -3,7 +3,7 @@
 Find the [project spec here](http://backend.turing.io/module1/projects/black_thursday/).
 
 ## I4 Blog Post 
-### sales_analyst.most_sold_item_for_merchant(merchant_id): This method must look at any given merchant_id, find the valid item(s) (an item is valid if the invoice is paid in full) that have the highest quantity sold and return it in a new array. In the event of a tie, it should also be able to return each item in that new array. To do this...
+sales_analyst.most_sold_item_for_merchant(merchant_id): This method must look at any given merchant_id, find the valid item(s) (an item is valid if the invoice is paid in full) that have the highest quantity sold and return it in a new array. In the event of a tie, it should also be able to return each item in that new array. To do this...
 
 ### Directories | Data Needed: 
 Merchant_repo.rb | Merchant IDs (.all method)
