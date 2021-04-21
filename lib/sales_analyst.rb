@@ -217,6 +217,10 @@ class SalesAnalyst
  end
 
  def most_sold_item_for_merchant(merchant_id)
+   bro = []
+   sales_engine.all_invoice_items.each do |invoice|
+     require "pry"; binding.pry
+   end
  end
 
  def best_item_for_merchant(merchant_id)
