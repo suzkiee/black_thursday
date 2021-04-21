@@ -7,8 +7,8 @@ class Merchant
   def initialize(merchant_info, repo)
     @id = merchant_info[:id].to_i
     @name = merchant_info[:name]
-    @created_at = Time.parse(merchant_info[:created_at].to_s)
-    @updated_at = Time.parse(merchant_info[:updated_at].to_s)
+    @created_at = Time.new(merchant_info[:created_at].to_s)
+    @updated_at = Time.new(merchant_info[:updated_at].to_s)
     @repo = repo
   end
 
@@ -17,6 +17,6 @@ class Merchant
   end
 
   def update_id(new_id)
-    @id = new_id + 1 
+    @id = new_id + 1
   end
 end
