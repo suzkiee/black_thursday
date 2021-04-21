@@ -158,7 +158,7 @@ RSpec.describe SalesAnalyst do
       expect(sales_analyst.top_revenue_earners(10).length).to eq(10)
     end
 
-    it '#ranked by revenue' do
+    it '#merchants ranked by revenue' do
       sales_analyst = @sales_engine.analyst
 
       expect(sales_analyst.merchants_ranked_by_revenue.first).to be_a(Merchant)
@@ -187,20 +187,6 @@ RSpec.describe SalesAnalyst do
       sales_analyst = @sales_engine.analyst
 
       expect(sales_analyst.revenue_by_merchant(12334194)).to be_a(BigDecimal)
-    end
-
-    #blog items
-
-    xit '#most sold item for merchant' do
-      sales_analyst = @sales_engine.analyst
-
-      expect(sales_analyst.most_sold_item_for_merchant(merchant_id)).to be_an(Array)
-    end
-
-    xit '#best item for merchant' do
-      sales_analyst = @sales_engine.analyst
-
-      expect(sales_analyst.best_item_for_merchant(merchant_id)).to be_an(Item)
     end
   end
 end

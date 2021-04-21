@@ -83,9 +83,9 @@ class MerchantRepo
     all_averages = all.sum do |merchant|
       @engine.average_item_price_for_merchant(merchant.id)
     end
-    (all_averages / all_items.to_f).round(2)
+    (all_averages / all_items).round(4)
   end
-  
+
   def revenue_by_merchant_id
     merchants = Hash.new(0)
     @engine.invoices_by_merchant.each do |merchant, invoice|
@@ -95,7 +95,7 @@ class MerchantRepo
     end
     merchants
   end
-  
+
   def top_revenue_earners(range_end = 20)
     descending = revenue_by_merchant_id.sort_by do |merchant_id|
       merchant_id[1]
@@ -113,15 +113,15 @@ class MerchantRepo
     descending.map do |merchant|
       sales_engine.find_by_id(merchant[0])
     end
-  end  
-  
+  end
+
   def merchants_with_pending_invoices
     merchants = sales_engine.find_all_pending.map do |invoice|
-      sales_engine.find_by_id(invoice.merchant_id, @merchants) if invoice_paid_in_full?(invoice.id) == false
+        @engine.find_by_id(invoice.merchant_id, @merchants) if invoice_paid_in_full?(invoice.id) == false
     end
     merchants.compact.uniq
   end
-  
+
   def merchants_with_only_one_item
     merchants = item_count_per_merchant.map do |merchant, count|
       @engine.find_by_id(merchant, @merchants) if count == 1
@@ -137,7 +137,7 @@ class MerchantRepo
 
   def revenue_by_merchant(merchant_id)
     total = []
-    revenue_by_merchant_id.each do |merchant, revenue|
+    @engine.revenue_by_merchant_id.each do |merchant, revenue|
       total << revenue if merchant == merchant_id
     end
     total[0]

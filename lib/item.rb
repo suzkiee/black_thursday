@@ -9,7 +9,7 @@ class Item
                 :updated_at,
                 :merchant_id,
                 :repo
-  
+
   def initialize(item_info, repo)
     @id = item_info[:id].to_i
     @name = item_info[:name]
@@ -49,6 +49,6 @@ class Item
   end
 
   def update_id(new_id)
-    @id = new_id + 1 
+    @id = new_id + 1
   end
 end

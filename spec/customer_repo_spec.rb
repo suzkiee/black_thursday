@@ -53,14 +53,13 @@ RSpec.describe CustomerRepo do
                                         :created_at => Time.now,
                                         :updated_at => Time.now
                                       })
-                                      
-      fragment = "JoA"
+
+      fragment = "Joa"
       expected = customer_repo.find_all_by_first_name(fragment, collection)
 
-      expect(expected).to eq([customer])
-      expect(expected.length).to eq(4)
+      expect(expected.length).to eq(1)
       expect(expected.first.class).to eq(Customer)
-      expect(customer_repo.find_by_first_name("doge")).to eq([])
+      expect(customer_repo.find_all_by_first_name("doge", collection)).to eq([])
     end
 
     it'#find all by last name' do
@@ -73,13 +72,12 @@ RSpec.describe CustomerRepo do
                                        :created_at => Time.now,
                                        :updated_at => Time.now})
 
-      fragment = "arKe" #test case sensitive
+      fragment = "arke"
       expected = customer_repo.find_all_by_last_name(fragment, collection)
 
-      expect(expected).to eq([customer])
-      expect(expected.length).to eq(6)
+      expect(expected.length).to eq(1)
       expect(expected.first.class).to eq(Customer)
-      expect(customer_repo.find_by_last_name("doge")).to eq([])
+      expect(customer_repo.find_all_by_last_name("doge", collection)).to eq([])
     end
 
     it'#create' do
@@ -105,8 +103,8 @@ RSpec.describe CustomerRepo do
                                         :created_at => Time.now,
                                         :updated_at => Time.now
                                       })
-                                      
-      updated_attributes = {:first_name => 'Alan'}      
+
+      updated_attributes = {:first_name => 'Alan'}
 
       customer_repo.update(customer.id, updated_attributes)
 
