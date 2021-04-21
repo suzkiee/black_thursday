@@ -109,7 +109,7 @@ RSpec.describe CustomerRepo do
 
       customer_repo.update(customer.id, updated_attributes)
 
-      expect(customer.first_name).to eq("Joan")
+      expect(customer.first_name).to eq("Alan")
       expect(customer.updated_at).to be_an_instance_of(Time)
     end
 
