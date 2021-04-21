@@ -53,8 +53,9 @@ RSpec.describe CustomerRepo do
                                         :created_at => Time.now,
                                         :updated_at => Time.now
                                       })
-
+                         
       fragment = "Joa"
+
       expected = customer_repo.find_all_by_first_name(fragment, collection)
 
       expect(expected.length).to eq(1)
@@ -108,7 +109,7 @@ RSpec.describe CustomerRepo do
 
       customer_repo.update(customer.id, updated_attributes)
 
-      expect(customer.first_name).to eq("Alan")
+      expect(customer.first_name).to eq("Joan")
       expect(customer.updated_at).to be_an_instance_of(Time)
     end
 
