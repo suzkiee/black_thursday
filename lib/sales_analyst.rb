@@ -3,33 +3,17 @@ require 'bigdecimal'
 
 class SalesAnalyst
   attr_reader :sales_engine
-  
+
   def initialize(sales_engine)
     @sales_engine = sales_engine
-  end
-
-  def item_count
-    sales_engine.item_count
-  end
-
-  def merchant_count #needed
-    sales_engine.merchant_count
   end
 
   def average_items_per_merchant
     @sales_engine.average_items_per_merchant
   end
 
-  def average_price
-    @sales_engine.average_price
-  end
-
   def average_items_per_merchant_standard_deviation
     @sales_engine.average_items_per_merchant_standard_deviation
-  end
-
-  def item_count_per_merchant
-    sales_engine.item_count_per_merchant
   end
 
   def merchants_with_high_item_count
@@ -55,20 +39,12 @@ class SalesAnalyst
     end
   end
 
-  def invoice_count #invoice repo
-    @sales_engine.invoice_count
-  end
-
   def average_invoices_per_merchant
     @sales_engine.average_invoices_per_merchant
   end
 
   def average_invoices_per_merchant_standard_deviation
     @sales_engine.average_invoices_per_merchant_standard_deviation
-  end
-
-  def invoice_count_per_merchant #invoice_repo
-    @sales_engine.invoice_count_per_merchant
   end
 
   def top_merchants_by_invoice_count
@@ -79,18 +55,14 @@ class SalesAnalyst
     @sales_engine.bottom_merchants_by_invoice_count
   end
 
-  def average_invoice_per_day_standard_deviation
-    @sales_engine.average_invoice_per_day_standard_deviation
-  end
- 
   def invoice_status(status)
-    @sales_engine.invoice_status
+    @sales_engine.invoice_status(status)
   end
 
   def invoice_paid_in_full?(invoice_id)
     @sales_engine.invoice_paid_in_full?(invoice_id)
   end
-    
+
   def invoice_total(id)
     @sales_engine.invoice_total(id)
   end
@@ -98,18 +70,9 @@ class SalesAnalyst
   def total_revenue_by_date(date)
     @sales_engine.total_revenue_by_date(date)
   end
-    
-  def revenue_by_merchant_id
-    @sales_engine.revenue_by_merchant_id
-  end
-
 
   def top_revenue_earners
     @sales_engine.top_revenue_earners
-  end
-
-  def merchants_ranked_by_revenue
-    @sales_engine.merchants_ranked_by_revenue
   end
 
   def merchants_with_pending_invoices
@@ -128,4 +91,3 @@ class SalesAnalyst
     @sales_engine.revenue_by_merchant(merchant_id)
   end
 end
-

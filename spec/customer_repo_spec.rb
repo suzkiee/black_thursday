@@ -53,7 +53,7 @@ RSpec.describe CustomerRepo do
                                         :created_at => Time.now,
                                         :updated_at => Time.now
                                       })
-                                  
+                         
       fragment = "Joa"
 
       expected = customer_repo.find_all_by_first_name(fragment, collection)
@@ -74,7 +74,6 @@ RSpec.describe CustomerRepo do
                                        :updated_at => Time.now})
 
       fragment = "arke"
-      
       expected = customer_repo.find_all_by_last_name(fragment, collection)
 
       expect(expected.length).to eq(1)
@@ -105,8 +104,8 @@ RSpec.describe CustomerRepo do
                                         :created_at => Time.now,
                                         :updated_at => Time.now
                                       })
-                                      
-      updated_attributes = {:first_name => 'Alan'}      
+
+      updated_attributes = {:first_name => 'Alan'}
 
       customer_repo.update(customer.id, updated_attributes)
 
