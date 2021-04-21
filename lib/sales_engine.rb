@@ -29,86 +29,58 @@ class SalesEngine
   def self.from_csv(paths)
     new(paths)
   end
-
-  # def all_items
-  #   @items.all
+  
+  # def average_price
+  #   @items.average_price
   # end
 
-  # def all_merchants
-  #   @merchants.all
+  # def item_count_per_merchant
+  #   @items.item_count_per_merchant
   # end
 
-  # def all_invoices
-  #   @invoices.all
+  # def invoice_count_per_merchant
+  #   @invoices.invoice_count_per_merchant
   # end
 
-  # def all_invoice_items
-  #   @invoice_items.all
+  # def invoice_count_per_day
+  #   @invoices.invoice_count_per_day
   # end
 
-  def item_count
-    @items.item_count
-  end
+  # def find_all_by_merchant_id(id)
+  #   @items.find_all_by_merchant_id(id)
+  # end
 
-  def merchant_count
-     @merchants.merchant_count
-  end
+  # def find_by_id(id)
+  #   @merchants.find_by_id(id)
+  # end
 
-  def invoice_count
-    @invoices.invoice_count
-  end
+  # def find_all_by_status(status)
+  #   @invoices.find_all_by_status(status)
+  # end
 
-  def average_price
-    @items.average_price
-  end
+  # def find_all_by_result(result)
+  #   @transactions.find_all_by_result(result)
+  # end
 
-  def item_count_per_merchant
-    @items.item_count_per_merchant
-  end
+  # def find_by_invoice_id(id)
+  #   @transactions.find_by_id(id)
+  # end
 
-  def invoice_count_per_merchant
-    @invoices.invoice_count_per_merchant
-  end
+  # def find_all_by_invoice_id(id)
+  #   @invoice_items.find_all_by_invoice_id(id)
+  # end
 
-  def invoice_count_per_day
-    @invoices.invoice_count_per_day
-  end
+  # def find_all_by_date(date)#spec
+  #   @invoices.find_all_by_date(date)
+  # end
 
-  def find_all_by_merchant_id(id)
-    @items.find_all_by_merchant_id(id)
-  end
+  # def find_all_pending#spec
+  #   @invoices.find_all_pending
+  # end
 
-  def find_by_id(id)
-    @merchants.find_by_id(id)
-  end
-
-  def find_all_by_status(status)
-    @invoices.find_all_by_status(status)
-  end
-
-  def find_all_by_result(result)
-    @transactions.find_all_by_result(result)
-  end
-
-  def find_by_invoice_id(id)
-    @transactions.find_by_id(id)
-  end
-
-  def find_all_by_invoice_id(id)
-    @invoice_items.find_all_by_invoice_id(id)
-  end
-
-  def find_all_by_date(date)#spec
-    @invoices.find_all_by_date(date)
-  end
-
-  def find_all_pending#spec
-    @invoices.find_all_pending
-  end
-
-  def invoices_by_merchant#spec
-    @invoices.invoices_by_merchant
-  end
+  # def invoices_by_merchant#spec
+  #   @invoices.invoices_by_merchant
+  # end
 
   def average_items_per_merchant
     @merchants.average_items_per_merchant

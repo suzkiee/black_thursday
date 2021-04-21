@@ -86,7 +86,7 @@ module Findable
     end
   end
 
-  def find_all_by_last_name(name_fragment)
+  def find_all_by_last_name(name_fragment, collection)
     collection.find_all do |attribute|
       attribute.last_name.include?(name_fragment)
     end
