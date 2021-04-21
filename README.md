@@ -26,7 +26,7 @@ Will ultimately need a way to access which object is seen most frequently among 
 
 sales_analyst.best_item_for_merchant(merchant_id): This method must look at any given merchant_id, iterate through each merchant to find the item(s) that have the highest quantity sold then, find the item(s) among those that have the highest revenue generated and return that item in a new array. In the event of a tie, it should also be able to return each item in that new array. To do this…
 
-## Directories | Data needed
+### Directories | Data needed
 Item_repo.rb & Invoice_repo | Updated at for determining status (@updated_at)
 Sales_analyst.rb & Transaction_repo | Paid in full for validity &  (invoice_paid_in_full?)
 Merchant_repo.rb | Merchant IDs & Revenue by merchant id (.all method | revenue_by_merchant_id)
