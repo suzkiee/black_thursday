@@ -24,8 +24,7 @@ Need to also create a method that shows how many specific items that merchant ha
 ## To Keep in Mind:
 Will ultimately need a way to access which object is seen most frequently among all item invoices that are paid in full.
 
-
-### sales_analyst.best_item_for_merchant(merchant_id): This method must look at any given merchant_id, iterate through each merchant to find the item(s) that have the highest quantity sold then, find the item(s) among those that have the highest revenue generated and return that item in a new array. In the event of a tie, it should also be able to return each item in that new array. To do this…
+sales_analyst.best_item_for_merchant(merchant_id): This method must look at any given merchant_id, iterate through each merchant to find the item(s) that have the highest quantity sold then, find the item(s) among those that have the highest revenue generated and return that item in a new array. In the event of a tie, it should also be able to return each item in that new array. To do this…
 
 ## Directories | Data needed
 Item_repo.rb & Invoice_repo | Updated at for determining status (@updated_at)
