@@ -39,7 +39,7 @@ RSpec.describe CustomerRepo do
                                         :updated_at => Time.now
                                       })
 
-      expect(customer_repo.find_by_id(customer.id, collection)).to eq(transaction1)
+      expect(customer_repo.find_by_id(customer.id, collection)).to eq(customer)
       expect(customer_repo.find_by_id(999999999, collection)).to eq(nil)
     end
 
@@ -54,7 +54,7 @@ RSpec.describe CustomerRepo do
                                         :updated_at => Time.now
                                       })
       fragment = "JoA"
-      expected = customer_repo.find_by_first_name(fragment)
+      expected = customer_repo.find_all_by_first_name(fragment, collection)
 
       expect(expected).to eq([customer])
       expect(expected.length).to eq(4)

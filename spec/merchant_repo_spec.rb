@@ -13,14 +13,14 @@ RSpec.describe MerchantRepo do
   end
 
   describe '#methods' do
-    xit '#all' do
+    it '#all' do
       mock_engine = double('MerchantRepo')
       merchant_repo = MerchantRepo.new('./fixtures/mock_items.csv', mock_engine)
 
       expect(merchant_repo.all).to be_an_instance_of(Array)
     end
 
-    xit '#find merchant by ID' do
+    it '#find merchant by ID' do
       mock_engine = double('MerchantRepo')
       merchant_repo = MerchantRepo.new('./fixtures/mock_items.csv', mock_engine)
       collection = merchant_repo.merchants
@@ -35,7 +35,7 @@ RSpec.describe MerchantRepo do
       expect(merchant_repo.find_by_id(999999999, collection)).to eq(nil)
     end
 
-    xit '#find merchant by name' do
+    it '#find merchant by name' do
       mock_engine = double('MerchantRepo')
       merchant_repo = MerchantRepo.new('./fixtures/mock_items.csv', mock_engine)
       collection = merchant_repo.merchants
@@ -63,7 +63,7 @@ RSpec.describe MerchantRepo do
       expect(merchant_repo.find_all_by_name("Hogwar", collection)).to eq([])
     end
 
-    xit '#create merchant' do
+    it '#create merchant' do
       mock_engine = double('MerchantRepo')
       merchant_repo = MerchantRepo.new('./fixtures/mock_items.csv', mock_engine)
       merchant = merchant_repo.create({:id => 5,
@@ -75,7 +75,7 @@ RSpec.describe MerchantRepo do
       expect(merchant).to be_an_instance_of(Merchant)
     end
 
-    xit '#updates attributes' do
+    it '#updates attributes' do
       mock_engine = double('MerchantRepo')
       merchant_repo = MerchantRepo.new('./fixtures/mock_items.csv', mock_engine)
       merchant = merchant_repo.create({:id => 5,
@@ -90,7 +90,7 @@ RSpec.describe MerchantRepo do
       expect(merchant.name).to eq("School of Life")
     end
 
-    xit '#delete merchant' do
+    it '#delete merchant' do
       mock_engine = double('MerchantRepo')
       merchant_repo = MerchantRepo.new('./fixtures/mock_items.csv', mock_engine)
       collection = merchant_repo.merchants
@@ -114,8 +114,8 @@ RSpec.describe MerchantRepo do
                                           :invoice_items => './fixtures/mock_invoice_items.csv',
                                           :transactions  => './fixtures/mock_transactions.csv',
                                           :customers => './fixtures/mock_customers.csv'})
-      
-      merchant_repo = sales_engine.merchants 
+
+      merchant_repo = sales_engine.merchants
 
       expect(merchant_repo.item_count).to be_a(Float)
     end
@@ -128,7 +128,7 @@ RSpec.describe MerchantRepo do
                                           :transactions  => './fixtures/mock_transactions.csv',
                                           :customers => './fixtures/mock_customers.csv'})
 
-      merchant_repo = sales_engine.merchants 
+      merchant_repo = sales_engine.merchants
 
       expect(merchant_repo.merchant_count).to be_a(Float)
     end
@@ -140,7 +140,7 @@ RSpec.describe MerchantRepo do
                                          :invoice_items => './fixtures/mock_invoice_items.csv',
                                          :transactions  => './fixtures/mock_transactions.csv',
                                          :customers => './fixtures/mock_customers.csv'})
-      merchant_repo = sales_engine.merchants 
+      merchant_repo = sales_engine.merchants
 
       expect(merchant_repo.average_items_per_merchant).to eq(2.88)
     end
@@ -152,7 +152,7 @@ RSpec.describe MerchantRepo do
                                            :invoice_items => './fixtures/mock_invoice_items.csv',
                                            :transactions  => './fixtures/mock_transactions.csv',
                                            :customers => './fixtures/mock_customers.csv'})
-      merchant_repo = sales_engine.merchants 
+      merchant_repo = sales_engine.merchants
 
       expect(merchant_repo.item_count_per_merchant.class).to eq(Hash)
     end
@@ -164,7 +164,7 @@ RSpec.describe MerchantRepo do
                                           :invoice_items => './fixtures/mock_invoice_items.csv',
                                           :transactions  => './fixtures/mock_transactions.csv',
                                           :customers => './fixtures/mock_customers.csv'})
-      merchant_repo = sales_engine.merchants 
+      merchant_repo = sales_engine.merchants
 
       expect(merchant_repo.average_items_per_merchant_standard_deviation).to eq(0)
     end
@@ -176,7 +176,7 @@ RSpec.describe MerchantRepo do
                                           :invoice_items => './fixtures/mock_invoice_items.csv',
                                           :transactions  => './fixtures/mock_transactions.csv',
                                           :customers => './fixtures/mock_customers.csv'})
-      merchant_repo = sales_engine.merchants 
+      merchant_repo = sales_engine.merchants
 
       expect(merchant_repo.merchants_with_high_item_count.first).to be_a(Merchant)
     end
@@ -188,8 +188,8 @@ RSpec.describe MerchantRepo do
                                           :invoice_items => './fixtures/mock_invoice_items.csv',
                                           :transactions  => './fixtures/mock_transactions.csv',
                                           :customers => './fixtures/mock_customers.csv'})
-      merchant_repo = sales_engine.merchants 
-    
+      merchant_repo = sales_engine.merchants
+
       expect(merchant_repo.average_average_price_per_merchant).to eq(350.29)
     end
   end
