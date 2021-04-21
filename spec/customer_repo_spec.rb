@@ -53,10 +53,11 @@ RSpec.describe CustomerRepo do
                                         :created_at => Time.now,
                                         :updated_at => Time.now
                                       })
+                                  
       fragment = "Joa"
+
       expected = customer_repo.find_all_by_first_name(fragment, collection)
 
-      # expect(expected).to eq([customer])
       expect(expected.length).to eq(1)
       expect(expected.first.class).to eq(Customer)
       expect(customer_repo.find_all_by_first_name("doge", collection)).to eq([])
@@ -73,6 +74,7 @@ RSpec.describe CustomerRepo do
                                        :updated_at => Time.now})
 
       fragment = "arke"
+      
       expected = customer_repo.find_all_by_last_name(fragment, collection)
 
       expect(expected.length).to eq(1)
@@ -98,13 +100,15 @@ RSpec.describe CustomerRepo do
       mock_engine = double('CustomerRepo')
       customer_repo = CustomerRepo.new('./fixtures/mock_customers.csv', mock_engine)
       customer = customer_repo.create({ :id => 6,
-                                         :first_name => "Joan",
-                                         :last_name => "Clarke",
-                                         :created_at => Time.now,
-                                         :updated_at => Time.now
+                                        :first_name => "Joan",
+                                        :last_name => "Clarke",
+                                        :created_at => Time.now,
+                                        :updated_at => Time.now
                                       })
+                                      
+      updated_attributes = {:first_name => 'Alan'}      
 
-      customer_repo.update(customer.first_name, {:first_name => 'Alan'})
+      customer_repo.update(customer.id, updated_attributes)
 
       expect(customer.first_name).to eq("Joan")
       expect(customer.updated_at).to be_an_instance_of(Time)

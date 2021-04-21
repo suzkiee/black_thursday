@@ -1,5 +1,6 @@
 require 'CSV'
 require 'transaction_repo'
+require 'sales_engine'
 
 RSpec.describe TransactionRepo do
   describe 'instantiation' do
@@ -156,6 +157,20 @@ RSpec.describe TransactionRepo do
       transaction_repo.delete(transaction.id)
 
       expect(transaction_repo.all.length).to eq(9)
+    end
+
+    it '#invoice paid in full?' do
+    sales_engine = SalesEngine.from_csv({:items => './fixtures/mock_items.csv',
+                                         :merchants => './fixtures/mock_merchants.csv',
+                                         :invoices => './fixtures/mock_invoices.csv',
+                                         :invoice_items => './fixtures/mock_invoice_items.csv',
+                                         :transactions  => './fixtures/mock_transactions.csv',
+                                         :customers => './fixtures/mock_customers.csv'})
+      
+      transaction_repo = sales_engine.transactions
+   
+      expect(transaction_repo.invoice_paid_in_full?(2179)).to eq(true)
+      expect(transaction_repo.invoice_paid_in_full?(2)).to eq(false)
     end
   end
 end
