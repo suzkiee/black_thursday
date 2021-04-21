@@ -28,7 +28,7 @@ RSpec.describe CustomerRepo do
       expect(customer_repo.all).to be_an_instance_of(Array)
     end
 
-    xit'#find by id' do
+    it'#find by id' do
       mock_engine = double('CustomerRepo')
       customer_repo = CustomerRepo.new('./fixtures/mock_customers.csv', mock_engine)
       collection = customer_repo.customers
@@ -43,7 +43,7 @@ RSpec.describe CustomerRepo do
       expect(customer_repo.find_by_id(999999999, collection)).to eq(nil)
     end
 
-    xit'#find all by first name' do
+    it'#find all by first name' do
       mock_engine = double('CustomerRepo')
       customer_repo = CustomerRepo.new('./fixtures/mock_customers.csv', mock_engine)
       collection = customer_repo.customers
@@ -62,7 +62,7 @@ RSpec.describe CustomerRepo do
       expect(customer_repo.find_by_first_name("doge")).to eq([])
     end
 
-    xit'#find all by last name' do
+    it'#find all by last name' do
       mock_engine = double('CustomerRepo')
       customer_repo = CustomerRepo.new('./fixtures/mock_customers.csv', mock_engine)
       collection = customer_repo.customers
@@ -95,7 +95,7 @@ RSpec.describe CustomerRepo do
       expect(customer.last_name).to eq("Clarke")
     end
 
-    xit'#updates attributes' do
+    it'#updates attributes' do
       mock_engine = double('CustomerRepo')
       customer_repo = CustomerRepo.new('./fixtures/mock_customers.csv', mock_engine)
       customer = customer_repo.create({ :id => 6,

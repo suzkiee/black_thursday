@@ -74,8 +74,8 @@ RSpec.describe TransactionRepo do
                                       :updated_at => Time.now
                                     })
 
-      expect(transaction.find_all_by_credit_card_number("4242424242424242", collection)).to eq([transaction])
-      expect(transaction.find_all_by_credit_card_number("0000000000000000", collection)).to eq([])
+      expect(transaction_repo.find_all_by_credit_card_number("4242424242424242", collection)).to eq([transaction])
+      expect(transaction_repo.find_all_by_credit_card_number("0000000000000000", collection)).to eq([])
     end
 
 
@@ -92,8 +92,8 @@ RSpec.describe TransactionRepo do
                                       :updated_at => Time.now
                                     })
 
-      expect(transaction.find_all_by_result("sweet success", collection)).to eq([transaction])
-      expect(transaction.find_all_by_result("sweetsuccess", collection)).to eq([])
+      expect(transaction_repo.find_all_by_result("sweet success", collection)).to eq([transaction])
+      expect(transaction_repo.find_all_by_result("sweetsuccess", collection)).to eq([])
     end
 
 
