@@ -78,7 +78,7 @@ RSpec.describe SalesEngine do
     it '#top days by invoice count' do
       sales_engine = @sales_engine
 
-      expect(sales_engein.top_days_by_invoice_count.length).to eq 1
+      expect(sales_engine.top_days_by_invoice_count.length).to eq 1
       expect(sales_engine.top_days_by_invoice_count.first).to eq "Wednesday"
       expect(sales_engine.top_days_by_invoice_count.first.class).to eq String
     end
